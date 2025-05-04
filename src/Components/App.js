@@ -4,8 +4,7 @@ import Form from './Form.js'
 import  PackingList  from "./PackingList.js";
 import  Stats  from "./Stats.js";
 
-
-
+console.log('GitHub Project')
 
 export default function App(){
   const [items, setItem] = useState([]) 
