@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from './Logo.js'
 import Form from './Form.js'
 import  PackingList  from "./PackingList.js";
@@ -7,10 +7,20 @@ import  Stats  from "./Stats.js";
 console.log('GitHub Project')
 
 export default function App(){
-  const [items, setItem] = useState([]) 
+  const [items, setItem] = useState(function() {
+    const storeItem = JSON.parse(localStorage.getItem('Items'))
+    console.log(storeItem)
+    return storeItem || []
+  }) 
   function handleAddItem(newItem) {
     setItem(item => [...item, newItem])
  }
+
+ console.log(items)
+
+ useEffect(function() {
+  localStorage.setItem('Items', JSON.stringify(items))
+ })
 
 
  function handleDelete(id) {
