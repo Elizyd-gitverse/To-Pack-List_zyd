@@ -20,13 +20,13 @@ export default function PackingList({ newItem, onDeleteItem, onToggleItem, onCle
       <ul>
         {sortedItem.map((item) => <Item itemObj={item} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} key={item.id} />)}
       </ul>
-      <div className="actions">
-        <select value={sortBy} onChange={handleSort}>
+      <div className="childBtn">
+        <select value={sortBy} onChange={handleSort} className="btnStyle">
           <option value='input'>Sort by input Order</option>
           <option value='description'>Sort by Description</option>
           <option value='packed'>Sort by packed</option>
         </select>
-        <button onClick={onClearList}>Clear list</button>
+        <button className="btnStyle" onClick={onClearList}>Clear list</button>
       </div>
     </div>
   );

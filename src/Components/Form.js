@@ -12,7 +12,7 @@ export default function Form({onAddItems}) {
  
     console.log(newItem)
     onAddItems(newItem)
-    setDescription('') 
+    // setDescription('') 
     setQuantity(1)
   }
 
@@ -33,7 +33,7 @@ export default function Form({onAddItems}) {
       </select>
       <input type='text' placeholder='Item...' value={description} onChange={descriptionChange}/>
    
-      <button>ADD</button>
+      <button className="btn btnStyle">ADD</button>
     </form>
   )
 }

@@ -13,15 +13,8 @@ export default function App(){
     return storeItem || []
   }) 
   function handleAddItem(newItem) {
-    setItem(item => [...item, newItem])
+    setItem(item => [newItem, ...item ])
  }
-
- console.log(items)
-
- useEffect(function() {
-  localStorage.setItem('Items', JSON.stringify(items))
- })
-
 
  function handleDelete(id) {
   setItem(item=> item.filter(item=> item.id !== id))
@@ -36,6 +29,10 @@ export default function App(){
   const confirmed = window.confirm('Are you sure you want to delete All items 🤔')
   if(confirmed) setItem([])
  }
+
+  useEffect(function() {
+  localStorage.setItem('Items', JSON.stringify(items))
+ })
 
   return (
     <div className="app">
